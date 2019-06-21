@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+vue工程
+
+集成vue、element、axios等框架，搭建了登陆、权限、大屏等功能，需后台项目支撑接口数据，后台项目地址：
+
 ## Build Setup
 
 ``` bash
@@ -30,3 +34,10 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+启动成功后浏览器访问：http://ip:8088
+
+
+#登陆账号
+超级管理员 adminsuper  as%2018
+部门管理员 web  web%2018
