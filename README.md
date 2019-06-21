@@ -4,7 +4,8 @@
 
 vue工程
 
-集成vue、element、axios等框架，搭建了登陆、权限、大屏等功能，需后台项目支撑接口数据，后台项目地址：
+集成vue、element、axios等框架，搭建了登陆、权限、大屏等功能
+需后台项目支撑接口数据，后台spring-boot项目地址：https://github.com/Freedom-Mr/spring-boot-shiro-2.0
 
 ## Build Setup
 
