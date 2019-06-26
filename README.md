@@ -38,7 +38,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 启动成功后浏览器访问：http://ip:8088
 
-
-#登陆账号
+##登陆账号
 超级管理员 adminsuper  as%2018
 部门管理员 web  web%2018
+
+##icon 视图
+http://ip:8088/icon#/svg
