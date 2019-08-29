@@ -96,7 +96,8 @@ export default {
       maxwidth: '', /* 拖动最大宽度，依据滑块宽度算出来的 */
       confirmWords: '拖动滑块验证', /* 滑块文字 */
       confirmSuccess: false, /* 验证成功判断 */
-      imgUrl: require('../../../common/image/png/logo1.png')
+      imgUrl: require('../../../common/image/png/logo1.png'),
+      imgLogo: require('../../../common/image/png/logo1.png')
     }
   },
   mounted () {
@@ -107,7 +108,7 @@ export default {
   },
   methods: {
     initCountUp () {
-      this.numAnim = new CountUp(this.$refs.countup, 0, 2018)
+      this.numAnim = new CountUp(this.$refs.countup, 0, 2019)
       this.numAnim.start()
     },
     showPwd () {

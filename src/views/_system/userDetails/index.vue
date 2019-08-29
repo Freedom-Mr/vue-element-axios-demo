@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <div style="padding-left: 10px;margin-bottom: 5px;padding-top: 5px;background-color: #e7e9ea;border-radius:5px">
+    <div style="padding-left: 10px;margin-bottom: 5px;padding-top: 5px;background-color: #e7e9ea;border-radius:5px" v-loading="loading_info">
       <el-row type="flex" style="height: 185px;">
         <el-col :span="3">
           <div style="border-radius: 4px;">
@@ -182,6 +182,8 @@ export default {
       uploadImg: null,
       imagelist: [], //头像
       uploadDisabled: false,
+
+      loading_info: false,
     }
   },
   computed: {
@@ -208,6 +210,7 @@ export default {
   },
   methods: {
     init () {
+      this.loading_info = true;
       this.u_profile_photo = this.profile_photo ? this.profile_photo : '--'
       this.u_account = this.account ? this.account : '--'
       this.u_realName = this.realName ? this.realName : '--'
@@ -227,8 +230,10 @@ export default {
           this.u_inst_name = res.data.data.inst_name ? res.data.data.inst_name : '--'
           this.u_dep_name = res.data.data.dep_name ? res.data.data.dep_name : '--'
           this.u_note = res.data.data.note ? res.data.data.note : '--'
+          this.loading_info = false;
         }
       }).catch(e => {
+        this.loading_info = false;
       })
     },
     loginLine () {

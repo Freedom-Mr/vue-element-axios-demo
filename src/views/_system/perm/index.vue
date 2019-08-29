@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container" v-loading="loading">
 
     <el-row :gutter="20">
 
@@ -148,7 +148,7 @@ export default {
   name: 'PermManage',
   data () {
     return {
-
+      loading: false,
       btnPermPrefix: 'b:',
 
       filterPlaceholderText: '输入权限名称、权限值过滤',
@@ -300,15 +300,18 @@ export default {
        * 删除按钮权限
        */
     handleDeleleButton (data) {
+      this.loading = true
       this.$confirm('您确定要永久删除该权限？', '提示', confirm).then(() => {
         permApi.deletePerm({ val: data.val }).then((rsData) => {
           if (rsData.data.code === Code.SUCCESS) {
             this.initData()
             this.$message.success('删除按钮权限成功')
+            this.loading = false
           }
         })
       }).catch(() => {
         this.$message({ type: 'info', message: '已取消删除' })
+        this.loading = false
       })
     },
 
@@ -316,8 +319,10 @@ export default {
        * 从服务器端加载接口权限树
        */
     loadApiButtonPermissionTree () {
+      this.loading = true
       permApi.listApiPermMetadata().then(res => {
         this.apiPermissionTree = res.data.data.apiList
+        this.loading = false
       })
     },
 
@@ -334,12 +339,14 @@ export default {
        * 同步菜单权限数据
        */
     handleSyncMenuPermissionData () {
+      this.loading = true
       let list = []
       this.permissionTreeToList(list, this.menuPermissionTree)
       permApi.syncMenuPerms(list).then(res => {
         if (res.data.code === Code.SUCCESS) {
           this.initData()
           this.$message.success('菜单权限数据同步成功')
+          this.loading = false
         }
       })
     },

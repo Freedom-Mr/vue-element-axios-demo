@@ -70,7 +70,7 @@ export default {
 
   methods: {
     submit () {
-      //debugger
+      //
       this.loading = true;
       let all = []
       for (let $r in this.$refs) {
@@ -154,7 +154,7 @@ export default {
     },
     // 查询是否自定义权限
     searchCustom () {
-      //debugger
+      //
       const para = { id: this.rid, type: this.type }
       roleApi.searchCustomPerm(para).then(res => {
         if (res.data.code === Code.SUCCESS) {

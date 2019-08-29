@@ -18,7 +18,7 @@
     </el-row>
 
     <!--列表-->
-    <el-table :data="roles" highlight-current-row style="width: 100%;" size="mini" show-overflow-tooltip border stripe>
+    <el-table :data="roles" highlight-current-row style="width: 100%;" size="mini" :row-style="tableRowStyle" :header-cell-style="tableHeaderColor" show-overflow-tooltip border stripe>
       <el-table-column type="selection" width="30">
       </el-table-column>
       <el-table-column type="expand" width="30" size="mini">
@@ -139,6 +139,16 @@ export default {
     this.getRoles()
   },
   methods: {
+    // 修改table tr行的背景色
+    tableRowStyle ({ row, rowIndex }) {
+      return 'background-color:rgba(0,90,255,0.08)'
+    },
+    // 修改table header的背景色
+    tableHeaderColor ({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex === 0) {
+        return 'background-color:rgb(177, 215, 236);color: #000000;font-weight: 900;'
+      }
+    },
     // 每页条数
     sizeChange (val) {
       this.size = val

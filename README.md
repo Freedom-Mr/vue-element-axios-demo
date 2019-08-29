@@ -46,3 +46,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## icon 视图
 
 http://ip:8088/icon#/svg
+
+#------------------------------------------------------
+
+## 2019.08.29 更新内容
+
+1、改善表格栏间隔色差
+2、头部增加显示当前动态时间及其日期
+3、增加三级菜单及其权限控制

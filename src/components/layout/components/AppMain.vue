@@ -1,5 +1,5 @@
 <template>
-  <section id="app-main" class="app-main clearfix" style="min-height: 100%;font-size: 12px;background-color: white;position: relative">
+  <section id="app-main" class="app-main clearfix" style="height: 97%;font-size: 12px;background-color: white;position: relative">
     <transition name="fade" mode="out-in">
       <keep-alive :include="cachedViews">
         <router-view></router-view>

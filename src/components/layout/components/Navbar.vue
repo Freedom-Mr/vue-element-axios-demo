@@ -1,10 +1,11 @@
 <template>
-  <el-menu class="navbar" mode="horizontal">
+  <el-menu class="navbar" mode="horizontal" style="    border-bottom: solid 1px #b6bed0;">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
 
     <breadcrumb class="breadcrumb-container"></breadcrumb>
-
     <div class="right-menu">
+      <p class="right-menu-item tip-date">{{ date }}</p>
+      <p class="right-menu-item tip-week">{{ week }}</p>
       <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
       <!-- 锁屏 -->
       <web-lock style="cursor:pointer" class="right-menu-item nx-help"></web-lock>
@@ -78,7 +79,9 @@ export default {
   },
   data () {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      date: '',
+      week: ''
     }
   },
   computed: {
@@ -89,6 +92,9 @@ export default {
       'profile_photo',
       'roles'
     ])
+  },
+  mounted () {
+    var timerID = setInterval(this.updateTime, 1000);
   },
   methods: {
     toggleSideBar () {
@@ -110,8 +116,20 @@ export default {
     handleUpdatePwd () {
       this.dialogVisible = true
       this.$nextTick(() => this.$refs['dataForm'].clearValidate())
+    },
+    updateTime () {
+      var cd = new Date();
+      var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+      this.date = this.zeroPadding(cd.getFullYear(), 4) + '-' + this.zeroPadding(cd.getMonth() + 1, 2) + '-' + this.zeroPadding(cd.getDate(), 2) + ' ' + this.zeroPadding(cd.getHours(), 2) + ':' + this.zeroPadding(cd.getMinutes(), 2) + ':' + this.zeroPadding(cd.getSeconds(), 2);
+      this.week = this.zeroPadding(week[cd.getDay()]);
+    },
+    zeroPadding (num, digit) {
+      var zero = '';
+      for (var i = 0; i < digit; i++) {
+        zero += '0';
+      }
+      return (zero + num).slice(-digit);
     }
-
   }
 }
 </script>
@@ -164,6 +182,14 @@ export default {
         cursor: pointer;
         position: relative;
       }
+    }
+    .tip-date {
+      letter-spacing: 0.1em;
+      font-size: 14px;
+    }
+    .tip-week {
+      letter-spacing: 0.1em;
+      font-size: 14px;
     }
   }
 }
