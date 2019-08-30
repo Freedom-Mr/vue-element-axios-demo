@@ -1,6 +1,6 @@
 <template>
 
-  <div class="app-container">
+  <div class="app-muns">
 
     <el-container class="containerMun">
       <!-- <el-header>
@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped >
-.app-container {
+.app-muns {
   .event_mun_bt {
     // float: right;
   }
